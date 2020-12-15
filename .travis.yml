@@ -54,6 +54,32 @@ matrix:
           language: generic
           env: MB_PYTHON_VERSION=3.9
           python: 3.9
+        
+        # Power jobs
+        - python: 3.5
+          sudo: true
+          arch: ppc64le
+        - python: 3.6
+          sudo: true
+          arch: ppc64le
+        - python: 3.7
+          sudo: true
+          arch: ppc64le
+        - python: 3.8
+          sudo: true
+          env: MB_ML_VER=2010
+          arch: ppc64le
+        - python: 3.9
+          sudo: true
+          env: MB_ML_VER=2010
+          arch: ppc64le
+        - compiler: clang
+          python: 3.7
+          env:
+            - SCAN="scan-build --status-bugs"
+            - SOURCEDEPLOY=1
+            - MKDOC="-DBUILD_DOC=ON -DSPHINX_ARGS=-WT"
+          arch: ppc64le
 
 addons:
     apt:
